@@ -22,7 +22,8 @@ const initialState = anecdotesAtStart.map(asObject);
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case 'NEW_ANECDOTE':
-      return [...state, payload];
+      const newAnecdote = asObject(payload.content);
+      return [...state, newAnecdote];
     case 'VOTE':
       const { id } = payload;
       const newState = state.map((anecdote) =>
