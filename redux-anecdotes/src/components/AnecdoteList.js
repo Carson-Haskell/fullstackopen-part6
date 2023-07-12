@@ -2,8 +2,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { voteFor } from '../reducers/anecdoteReducer';
 
 const AnecdoteList = () => {
-  const anecdotes = useSelector(({ filter, anecdotes }) => {
-    let anecdotesToDisplay = anecdotes;
+  const anecdotes = useSelector(({ anecdotes, filter }) => {
+    let anecdotesToDisplay = [...anecdotes];
 
     if (filter !== '') {
       anecdotesToDisplay = anecdotes.filter((a) =>
